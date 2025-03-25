@@ -1,0 +1,512 @@
+Day - 2
+
+1) STRING HANDLING AND MANIPULTAION:
+
+In Java, a String is a sequence of characters.
+It is an object that represents a collection of characters and is widely used for handling and manipulating text.
+Stings in Java are immutable, meaning the value cant be changed after creation.
+
+WHY USE STRINGS?
+
+To store and manipulate textual data.
+Commonly used for input/output, file handling, and data processing.
+
+DECLARATION AND INITIALIZATION OF STRINGS:
+ 
+ String name = “Geeks”;
+
+
+String num = “1234”
+
+// Java Program to demonstrate String
+public class Geeks {
+
+    // Main Function
+    public static void main(String args[])
+    {
+
+        // creating Java string using new keyword
+        String str = new String("GeeksforGeeks");
+
+        System.out.println(str);
+    }
+}
+
+String str1="Hello";  //using string literal
+String str2=new String("World");  //using new keyword
+
+
+COMMON STRING METHODS:
+
+class Main {
+    public static void main(String[] args) {
+        String s1="Hello";
+        String s2=new String("Hello");
+        System.out.println(s1==s2);
+    }
+}
+
+The above program gives false as output.
+
+
+class Main {
+    public static void main(String[] args) {
+        String s1="Hello";
+        String s2=new String("Hello");
+        //System.out.println(s1==s2);
+        System.out.println(s1.equals(s2));
+    }
+}
+
+using the equals() method checks the contents and not the memory like ==.
+
+
+https://www.geeksforgeeks.org/java-string-manipulation-best-practices-for-clean-code/
+
+
+class Main {
+    public static void main(String[] args) {
+        //using literal //String Pool //allow duplicate //faster
+        String s1="Hello";
+        //using new keyword //Heap memory //prevent duplication //slower
+        String s2=new String("Hello");
+        //System.out.println(s1==s2);
+        System.out.println(s1.equals(s2));
+    }
+}
+
+
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner asdf = new Scanner(System.in);
+        String s1="Hari";
+        System.out.println("Enter your name");
+        String s2 = asdf.nextLine();
+        System.out.println(s1.equals(s2));
+        
+    
+    }
+}
+
+
+
+class Main {
+    public static void main(String[] args) {
+        Scanner ref = new Scanner(System.in);
+        String teacher="java is fun";
+        String student1="java is fun";
+        String student2=new String("java is hard");
+        System.out.println(teacher==student1);
+        System.out.println(teacher==student2);
+        System.out.println(student1==student2);
+        
+    }
+}
+
+
+
+
+class Main {
+    public static void main(String[] args) {
+        String s1 = "ProgrammingLanguage";
+        System.out.println(s1.length());
+        for(int i=0;i<s1.length();i++){
+            System.out.println(s1.charAt(i));
+        }
+        
+        
+    }
+}
+
+
+
+public class SubstringExample {
+    public static void main(String[] args) {
+        String str="Java Programming";
+        System.out.println("Substring from index5:"+str.substring(5));
+        System.out.println("Substring from index 0 to 4"+str.substring(0,4));
+        
+        
+    }
+}
+
+
+ OUTPUT:
+ Substring from index5:Programming
+Substring from index 0 to 4Java
+
+=== Code Execution Successful ===
+
+
+class Main {
+    public static void main(String[] args) {
+        String s1 = "ProgrammingLanguage";
+        System.out.println(s1.length());
+        for(int i=s1.length()-1;i>=0;i--){
+            System.out.println(s1.charAt(i));
+        }
+        
+        
+    }
+}
+
+
+
+
+3) indexOf(String Str)
+
+
+example:
+
+public class IndexOfExample {
+    public static void main(String[] args) {
+        String str="Java Programming";
+        System.out.println("Index of 'prog':"+str.indexOf("Prog"));
+        System.out.println("Index of 'z':"+str.indexOf('z'));//not found
+        
+    }
+}
+
+OUTPUT:
+
+Index of 'prog':5
+Index of 'z':-1
+
+=== Code Execution Successful ===
+
+
+
+
+
+st.replace()   :
+
+
+public class IndexOfExample {
+    public static void main(String[] args) {
+        String st="Java Programming";
+        System.out.println(st.replace('a','x'));
+    }
+}
+
+string.equals(string)     :
+
+
+
+
+class Main {
+    public static void main(String[] args) {
+        String str1 = "Java";
+        String str2 = "java";
+        System.out.println("Case-sensitive equals:"+str1.equals(str2));
+        System.out.println("Case-insensitive equals:"+str1.equalsIgnoreCase(str2));
+    }
+    
+    
+}
+
+
+
+
+
+TRIM:
+
+class Main {
+    public static void main(String[] args) {
+        String str1 = " Java Programming ";
+        
+        System.out.println("Before Trim:["+str1+"]");
+        System.out.println("After Trim:["+str1.trim()+"]");
+    }
+}
+
+Before Trim:[ Java Programming ]
+After Trim:[Java Programming]
+
+=== Code Execution Successful ===
+
+
+
+
+
+INTERN:
+The . intern() method creates an exact copy of a string located in the heap memory and stores it in the 
+string constant pool. With this method, it is possible to optimize memory usage in a Java program by reusing 
+identical string objects.
+
+
+class Main {
+    public static void main(String[] args) {
+       String s1=new String ("JavaDeveloper");
+       String s2="JavaDeveloper";
+       String s3=s1.intern();
+       System.out.println(s1==s2);
+       System.out.println(s2==s3);
+    }
+}
+
+OUTPUT:
+
+false
+true
+
+=== Code Execution Successful ===
+
+
+
+
+
+contains()  :
+
+Definition and Usage
+The contains() method checks whether a string contains a sequence of characters.
+
+Returns true if the characters exist and false if not.
+
+Syntax
+public boolean contains(CharSequence chars)
+
+
+
+
+eg program:
+
+class Main {
+    public static void main(String[] args) {
+       String s2="JavaDeveloper";
+       System.out.println("Contains 'Java':"+s2.contains("Java"));
+       System.out.println("Contains 'Python':"+s2.contains("Python"));
+       
+    }
+}
+
+
+OUTPUT:
+
+Contains 'Java':true
+Contains 'Python':false
+
+=== Code Execution Successful ===
+
+
+
+split()  :
+
+
+.
+.
+.
+
+
+
+WRAPPER CLASS :
+
+
+DEFINITION:
+Wrapper class in Java provide a way to use primitive date types (int,double,char,etc,...) as objects.
+
+https://www.geeksforgeeks.org/wrapper-classes-java/
+
+parseInt()
+
+public class Main
+{
+	public static void main(String[] args) {
+	    String num1="123";
+	    String num2="345";
+	    if(Integer.parseInt(num1)>Integer.parseInt(num2))
+	    {
+	        System.out.println("num1 is greater");
+	    }
+	    else
+	    {
+	        System.out.println("num2 is greater");
+	    }
+	}
+}
+
+
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    ArrayList<Character> li = new ArrayList<>();
+	    li.add('a');
+	    System.out.println(li.get(0));
+	}
+}
+// above program is with errors
+
+
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    String num1="123,345,789";
+	    String[] num2 = num1.split(",");
+	    int max=0;
+	    for(int i=0;i<num2.length;i++)
+	    {
+	       
+	        if(Integer.parseInt(num2[i])>max)
+	        {
+	            max=Integer.parseInt(num2[i]);
+	            
+	        }
+	    }
+	    System.out.println("max val " +max);
+        
+	}
+	 
+}
+
+
+
+Primitive type                                          Wrapper Class
+
+byte                                                    Byte
+short													Short
+int														Integer
+long													Long
+float													Float
+double													Double
+char													Character
+boolean													Boolean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    String str="Hello";
+	    String str1=" ";
+	    for(int i=0;i<str.length();i++)
+	    {
+	        System.out.println(str.charAt(i));
+	    }
+	}
+	 
+}
+
+
+
+
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    String str="Hello";
+	    String str1="";
+	    for(int i=0;i<str.length();i++)
+	    {
+	        if(str.charAt(i)=='l')
+	        {
+	            str1+='k';
+	        }
+	        else{
+	            str1+=str.charAt(i);
+	        }
+	       
+	    }
+	    System.out.println(str1);
+	}
+	 
+}
+
+
+
+
+
+STRING BUFFER AND STRING BUILDER:
+
+Important Methods of String Builder:
+1)append(String str): Adds a string at the end.
+2)insert(int offset,String str): Inserts a string at the specified position.
+3)replace(int start,int end, String str): Replaces characters within a range>
+4)reverse(): Reverses the string.
+
+1)Append:
+public class Main
+{
+	public static void main(String[] args) {
+	    StringBuffer str = new StringBuffer("Hello");
+	    str.append("World");
+	    System.out.println(str);
+	}
+	 
+}
+
+2)Insert:
+public class Main
+{
+	public static void main(String[] args) {
+	    StringBuffer str = new StringBuffer("Hello");
+	    str.append("World");
+	    str.insert(5,"! ");
+	    System.out.println(str);
+	}
+	 
+}
+
+3)Replace:
+public class Main
+{
+	public static void main(String[] args) {
+	    StringBuffer str = new StringBuffer("Hello");
+	    str.append("World");
+	    str.insert(5,"! ");
+	    System.out.println(str);
+	    str.replace(7,12,"Java");
+	    System.out.println(str);
+	}
+	 
+}
+
+4)Reverse:
+
+public class Main
+{
+	public static void main(String[] args) {
+	    StringBuffer str = new StringBuffer("Hello");
+	    str.append("World");
+	    str.insert(5,"! ");
+	    System.out.println(str);
+	    str.replace(7,12,"Java");
+	    System.out.println(str);
+	    str.reverse();
+	    System.out.println(str);
+	    
+	    
+	}
+	 
+}
+
+
+
+
+Diff between String buffer and String builder
+String buffer is synchronized and the string builder is not synchronized
+because of this synchronization buffer is threat safe and the string builder is not threat safes
+
+Note:Mutable-Can be changed Immutable-Cannot be changed.
+
+
+
