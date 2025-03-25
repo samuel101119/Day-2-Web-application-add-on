@@ -1,0 +1,353 @@
+import java.util.Scanner;
+public class Main{
+    public static void main (String[] args) {
+    Scanner ref = new Scanner(System.in);
+    System.out.println("Enter the Char value");
+    char a= ref.nextLine().charAt(0);;
+    System.out.println(a);
+}
+}
+
+
+
+
+
+INTRODUCTION TO OBJECT-ORIENTED PROGRAMMING:
+
+  Object oriented programming is a program paradigm based on the concept of "objects".
+  These objects can contain date in the form of fields (attributes) and code in the form of methods (functions).
+  OOP focuses on creating reusable, modular and organized code by simulating real-world entities.
+
+  
+  Class-Blueprint of Java(Definition block of java) that contains states and behaviour.
+  State refers to date member(vairable), behaviour refers to member function.
+  
+  Object-Real world entity that have its own states and behaviour.
+  Java can have two classes (one for logic and another one execution part).
+  
+  
+  Declaring static
+  package oopsconcept;
+
+public class Objectoriented {
+    
+    static int a = 10;
+    static int b = 20;
+    
+    public static void Display() {
+        System.out.println("static method");
+    }
+
+}
+
+class Main {
+    public static void main(String[] args) {
+        
+        System.out.println(Objectoriented.a); // Accessing static variable a
+        Objectoriented.Display(); // Calling static method Display
+    }
+}
+
+    
+  
+KEY PRINCIPLES OF OOP:
+
+1)ENCAPSULATION:
+
+  Wrapping date(attributes) and methods(behavior) inside a class to protect them from unauthorized access.
+
+2)INHERITANCE:
+  
+
+
+
+
+
+CONSTRUCTOR:
+
+Must have same name as the class name
+Constructor does not allow access modifiers and also return type
+
+package Javaprogram;
+
+public class main {
+	public static void main(String[] args) {
+		Sample ref = new Sample();
+	}
+
+}
+class Sample{
+	//default constructor
+	Sample(){
+		System.out.println("Default constructor");
+	}
+}
+
+
+
+
+
+package Javaprogram;
+
+public class main {
+	public static void main(String[] args) {
+		Sample ref = new Sample("BMW","M5");
+		System.out.println(ref.carname);
+		System.out.println(ref.carmodel);
+	}
+
+}
+class Sample{
+	String carname;
+    String carmodel;
+	//default constructor
+	Sample(String carname ,String carmodel){
+		this.carname=carname;
+		this.carmodel=carmodel;
+		System.out.println("Default constructor");
+	}
+}
+
+
+
+
+
+package Javaprogram;
+
+public class main {
+	public static void main(String[] args) {
+		Sample ref = new Sample("BMW","M5");
+		Sample ref1 = new Sample("BMW","M3");
+		System.out.println(ref.carname);
+		System.out.println(ref.carmodel);
+		System.out.println(ref1.carname);
+		System.out.println(ref1.carmodel);
+		
+	}
+
+}
+class Sample{
+	String carname;
+    String carmodel;
+	//default constructor
+	Sample(String carname ,String carmodel){
+		this.carname=carname;
+		this.carmodel=carmodel;
+	}
+}
+
+
+
+
+ENCAPSULATION:
+
+package Javaprogram;
+
+public class main {
+	public static void main(String[] args) {
+	Account ac=new Account("Hari",200000);
+	System.out.println(ac.getAccholder());
+	System.out.println(ac.getbalance());
+	
+	}
+
+}
+class Account{
+	private String Accholder;
+	private int Balance;
+	Account(String Accholder,int Balance){
+		this.Accholder=Accholder;
+		this.Balance=Balance;
+	}
+	public String getAccholder() {
+		return Accholder;
+	}
+	public int getbalance() {
+		return Balance;
+	}
+}
+
+
+
+
+package Javaprogram;
+
+public class main {
+	public static void main(String[] args) {
+	Account ac=new Account("Hari",200000);
+	System.out.println(ac.getAccholder());
+	System.out.println(ac.getbalance());
+	ac.setAccholder("Sam");
+	System.out.println("updated Accholder Name "+ac.getAccholder());
+	}
+
+}
+class Account{
+	private String Accholder;
+	private int Balance;
+	Account(String Accholder,int Balance){
+		this.Accholder=Accholder;
+		this.Balance=Balance;
+	}
+	public String getAccholder() {
+		return Accholder;
+	}
+	public int getbalance() {
+		return Balance;
+	}
+	public void setAccholder(String Accholder) {
+		this.Accholder=Accholder;
+		
+	}
+}
+
+
+
+
+
+package Javaprogram;
+
+public class main {
+	public static void main(String[] args) {
+	Account ac=new Account("Hari",200000);
+	System.out.println(ac.getAccholder());
+	System.out.println(ac.getbalance());
+	ac.setAccholder("Sam");
+	System.out.println("updated Accholder Name "+ac.getAccholder());
+	ac.setbalance(204000);
+	System.out.println("updated Balance "+ac.getbalance());
+	
+	}
+
+}
+class Account{
+	private String Accholder;
+	private int Balance;
+	Account(String Accholder,int Balance){
+		this.Accholder=Accholder;
+		this.Balance=Balance;
+	}
+	public String getAccholder() {
+		return Accholder;
+	}
+	public int getbalance() {
+		return Balance;
+	}
+	public void setAccholder(String Accholder) {
+		this.Accholder=Accholder;
+		
+	}
+	public void setbalance(int Balance) {
+		this.Balance=Balance;
+	}
+}
+
+
+Output:
+
+Hari
+200000
+updated Accholder Name Sam
+updated Balance 204000
+
+
+
+
+
+package Javaprogram;
+
+
+public class main {
+	public static void main(String[] args) {
+	Account ac=new Account("Hari",20000);
+	System.out.println(ac.getAccholder());
+	System.out.println(ac.getBalance());
+	
+	ac.setAccholder("Sam");
+	System.out.println("updated Accholder Name "+ac.getAccholder());
+	ac.credit(4000);
+	ac.debit(3000);
+	
+	}
+
+}
+class Account{
+	private String Accholder;
+	private int Balance;
+	Account(String Accholder,int Balance){
+		this.Accholder=Accholder;
+		this.Balance=Balance;
+	}
+	public String getAccholder() {
+		return Accholder;
+	}
+	public int getBalance() {
+		return Balance;
+	}
+	public void credit(int amount) {
+		if(Balance>0) {
+			Balance +=amount;
+			System.out.println(amount+" deposited successfully");
+			System.out.println("Balance:"+Balance);
+			
+		}
+	}
+	public void setAccholder(String Accholder) {
+		this.Accholder=Accholder;
+		
+	}
+	public void debit(int wamnt) {
+		if(Balance>=wamnt) {
+			Balance -=wamnt;
+			System.out.println(wamnt+" Debited successfully");
+			System.out.println("Remaining Balance "+Balance);
+		}
+		else
+		{
+			System.out.println("Insufficient Balance");
+		}
+	}
+	
+}
+
+
+
+Output:
+
+Hari
+20000
+updated Accholder Name Sam
+4000 deposited successfully
+Balance:24000
+3000 Debited successfully
+Remaining Balance 21000
+
+
+
+
+
+
+
+
+
+
+INHERITANCE: 
+  Inheritance is a mechanism in java where one class (child/subclass) azquires the properties (fields) and behaviours(methods) of another class(parent/superclass).
+  It promotes code reusability and a hierarchical class structure.
+  
+  Key features:
+    Super class(Parent): The class whose properties are inherited.
+	Sub class(child): The class that inherits properties and methods.
+	extends keyword: Used to establish inheritance.
+	Reusability: Common functionality is written once in the superclass and reused in subclasses.
+	
+  Types of Inheritance:
+    Single Inheritance.
+	Multi-level Inheritance.
+	Hierarchical Inheritance.
+	Multiple Inheritance(achieved through interface).
+	Hybrid Inheritance(achieved through interface).
+	
+	
+	
+  
